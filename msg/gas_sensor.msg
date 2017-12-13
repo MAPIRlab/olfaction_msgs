@@ -38,7 +38,7 @@ uint8 mpn
 
 #Measurement
 float64 raw
-float64 raw_units
-float64 raw_air
-float64 calib_A
-float64 calib_B
+float64 raw_zero
+float64 calibration_a
+float64 calibration_b
+uint8 units
