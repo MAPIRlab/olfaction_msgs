@@ -38,7 +38,8 @@ uint8 mpn
 
 #Measurement
 float64 raw
-float64 raw_units
-float64 raw_air
-float64 calib_A
-float64 calib_B
+uint8 raw_units			# Measurement units (e.g. ppm, volts, ohm)
+float64 raw_air			# Sensor output for clean air
+float64 calib_A			# Calibration constant. Its exact meaning depends on the sensor
+float64 calib_B			# Calibration constant. Its exact meaning depends on the sensor
+
