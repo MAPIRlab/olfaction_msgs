@@ -5,6 +5,7 @@
   <description>Definition of msg related to artificial olfaction: Anemometers, PID, gas-sensor, gas-sensors-array, etc.</description>
 
   <maintainer email="jgmonory@uma.es">Javier Monroy</maintainer>
+  <maintainer email="andresgongora@uma.es">Andres Gongora</maintainer>
   <license>GPLv3</license>
 
 
