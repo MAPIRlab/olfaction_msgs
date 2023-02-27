@@ -1,4 +1,4 @@
-Header header		    #timestamp, frame_id
+std_msgs/Header header		    #timestamp, frame_id
 
 string sensor_label	    #identifier
 float32 wind_speed	    #m/s

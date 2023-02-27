@@ -1,44 +1,49 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(olfaction_msgs)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
-## is used, also find other catkin packages
-find_package(catkin REQUIRED COMPONENTS
-	roscpp
-	std_msgs
-	nav_msgs
-	message_generation
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  # the following line skips the linter which checks for copyrights
+  # comment the line when a copyright and license is added to all source files
+  set(ament_cmake_copyright_FOUND TRUE)
+  # the following line skips cpplint (only works in a git repo)
+  # comment the line when this package is in a git repo and when
+  # a copyright and license is added to all source files
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+# let the compiler search for headers in the include folder
+#include_directories(include)
+
+## Generate messages and services
+rosidl_generate_interfaces(${PROJECT_NAME}
+	"msg/Anemometer.msg"
+	"msg/GasSensor.msg"
+	"msg/GasSensorArray.msg"
+	"msg/Observation.msg"
+	"srv/SuggestNextObservationLocation.srv"
+  	DEPENDENCIES std_msgs nav_msgs geometry_msgs # Add packages that above messages depend on
 )
 
-
-## Generate messages in the 'msg' folder
-add_message_files(
-	FILES
-	anemometer.msg
-	gas_sensor.msg
-	gas_sensor_array.msg
-	Observation.msg
+rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME}
+  "rosidl_typesupport_cpp"
 )
 
-
-add_service_files(
-	FILES
-	suggestNextObservationLocation.srv
-)
-
-
-## Generate added messages and services with any dependencies listed here
-generate_messages(
-	DEPENDENCIES
-	std_msgs  # Or other packages containing msgs
-	nav_msgs
-)
-
-
-catkin_package(
-#  INCLUDE_DIRS include
-#  LIBRARIES olfaction_msgs
-	CATKIN_DEPENDS std_msgs message_runtime
-#  DEPENDS system_lib
-)
+ament_package()

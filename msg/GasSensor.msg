@@ -50,7 +50,7 @@ uint8 UNITS_NOT_VALID        = 255
 
 # MESSAGE DEFINITION -----------------------------------------------------------
 
-Header header       # timestamp and frame_id
+std_msgs/Header header       # timestamp and frame_id
 
 #Info
 uint8 technology
@@ -61,6 +61,6 @@ uint8 mpn
 float64 raw
 uint8 raw_units     # Measurement units (e.g. ppm, volts, ohm)
 float64 raw_air     # Sensor output for clean air
-float64 calib_A     # Calibration constant. Its exact meaning depends on the sensor
-float64 calib_B     # Calibration constant. Its exact meaning depends on the sensor
+float64 calib_a     # Calibration constant. Its exact meaning depends on the sensor
+float64 calib_b     # Calibration constant. Its exact meaning depends on the sensor
 
