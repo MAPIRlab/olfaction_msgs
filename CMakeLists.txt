@@ -18,6 +18,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 	"msg/Anemometer.msg"
 	"msg/GasSensor.msg"
 	"msg/GasSensorArray.msg"
+	"msg/TDLAS.msg"
 	"msg/Observation.msg"
 	"srv/SuggestNextObservationLocation.srv"
   	DEPENDENCIES std_msgs nav_msgs geometry_msgs # Add packages that above messages depend on
