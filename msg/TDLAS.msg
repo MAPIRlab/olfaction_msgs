@@ -3,8 +3,10 @@ std_msgs/Header header       # timestamp and frame_id
 
 # Measurement
 uint8     average_ppmxm               # ppm x meter
+float32   average_reflection_strength # no units given
+float32   average_absorption_strength # no units given
 
 # Each measurement contains 5 consecutive readings
-uint8[]   ppmxm                       # ppm x meter
+uint8[]   ppmxm                        # ppm x meter
 float32[] reflection_strength          # no units given
 float32[] absorption_strength          # no units given
