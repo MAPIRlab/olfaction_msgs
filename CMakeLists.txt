@@ -7,10 +7,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(nav_msgs REQUIRED)
-find_package(geometry_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 
 ## Generate messages and services
@@ -19,9 +16,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 	"msg/GasSensor.msg"
 	"msg/GasSensorArray.msg"
 	"msg/TDLAS.msg"
-	"msg/Observation.msg"
-	"srv/SuggestNextObservationLocation.srv"
-  	DEPENDENCIES std_msgs nav_msgs geometry_msgs # Add packages that above messages depend on
+  	DEPENDENCIES std_msgs   # Add packages that above messages depend on
 )
 
 ament_package()
